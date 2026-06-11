@@ -1,0 +1,282 @@
+:root {
+  --rbc-out-of-range-color: #6b7280;
+  --rbc-out-of-range-bg-color: #f5f5f5;
+  --rbc-calendar-border: #e5e7eb;
+  --rbc-cell-border: #e5e7eb;
+  --rbc-cell-border-lighten: #f7f8f9;
+  --rbc-border-color: #e5e7eb;
+  --rbc-time-selection-color: white;
+  --rbc-time-selection-bg-color: rgba(0, 0, 0, 0.5);
+  --rbc-date-selection-bg-color: rgba(0, 0, 0, 0.1);
+  --rbc-event-bg: #93c5fd;
+  --rbc-event-bg-active: #dbeafe;
+  --rbc-event-border: #60a5fa;
+  --rbc-event-outline: #3b99fc;
+  --rbc-event-color: #1e3a8a;
+  --rbc-calendar-bg: #fff;
+  --rbc-btn-bg: #fff;
+  --rbc-btn-bg-active: #eff4fb;
+  --rbc-btn-border: #e2e8f0;
+  --rbc-btn-border-active: #e2e8f0;
+  --rbc-current-time-color: #1ab08e;
+}
+
+:root.dark {
+  --rbc-out-of-range-color: #666e79;
+  --rbc-out-of-range-bg-color: #3a4552;
+  --rbc-calendar-border: #3d4d60;
+  --rbc-cell-border: #1a222c;
+  --rbc-cell-border-lighten: #1e2733;
+  --rbc-border-color: #e5e7eb;
+  --rbc-time-selection-color: white;
+  --rbc-time-selection-bg-color: rgba(0, 0, 0, 0.5);
+  --rbc-date-selection-bg-color: rgba(0, 0, 0, 0.1);
+  --rbc-event-bg: #0c4a6e;
+  --rbc-event-border: #0a3b58;
+  --rbc-event-outline: #3b99fc;
+  --rbc-event-color: #bae6fd;
+  --rbc-calendar-bg: #24303f;
+  --rbc-btn-bg: #24303f;
+  --rbc-btn-bg-active: #313d4a;
+  --rbc-btn-border: #2e3a47;
+  --rbc-btn-border-active: #e2e8f0;
+  --rbc-current-time-color: #01a781;
+}
+
+.rbc-time-column {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.rbc-time-column .rbc-timeslot-group {
+  flex: 1;
+}
+
+.rbc-timeslot-group {
+  border-bottom: 1px solid var(--rbc-cell-border);
+  min-height: 3rem;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.rbc-time-gutter,
+.rbc-header-gutter {
+  flex: none;
+}
+
+.rbc-label {
+  padding: 0 5px;
+}
+
+.rbc-day-slot {
+  position: relative;
+}
+.rbc-day-slot .rbc-events-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  top: 0;
+}
+.rbc-day-slot .rbc-events-container.rbc-rtl {
+  left: 10px;
+  right: 0;
+}
+.rbc-day-slot .rbc-event, .rbc-day-slot .rbc-background-event {
+  display: flex;
+  max-height: 100%;
+  min-height: 20px;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  overflow: hidden;
+  position: absolute;
+}
+.rbc-day-slot .rbc-background-event {
+  opacity: 0.75;
+}
+.rbc-day-slot .rbc-event-label {
+  flex: none;
+  padding-right: 5px;
+  width: auto;
+}
+.rbc-day-slot .rbc-event-content {
+  width: 100%;
+  word-wrap: break-word;
+  min-height: 1em;
+}
+.rbc-day-slot .rbc-time-slot {
+  border-top: 1px solid var(--rbc-cell-border-lighten);
+}
+
+.rbc-time-view-resources .rbc-time-gutter,
+.rbc-time-view-resources .rbc-time-header-gutter {
+  position: sticky;
+  left: 0;
+  background-color: white;
+  border-right: 1px solid var(--rbc-cell-border);
+  z-index: 10;
+  margin-right: -1px;
+}
+.rbc-time-view-resources .rbc-time-header {
+  overflow: hidden;
+}
+.rbc-time-view-resources .rbc-time-header-content {
+  min-width: auto;
+  flex: 1 0 0;
+  flex-basis: 0px;
+}
+.rbc-time-view-resources .rbc-time-header-cell-single-day {
+  display: none;
+}
+.rbc-time-view-resources .rbc-day-slot {
+  min-width: 140px;
+}
+.rbc-time-view-resources .rbc-header,
+.rbc-time-view-resources .rbc-day-bg {
+  width: 140px;
+  flex: 1 1 0;
+  flex-basis: 0 px;
+}
+
+.rbc-time-header-content + .rbc-time-header-content {
+  margin-left: -1px;
+}
+
+.rbc-time-slot {
+  flex: 1 0 0;
+}
+.rbc-time-slot.rbc-now {
+  font-weight: bold;
+}
+
+.rbc-day-header {
+  text-align: center;
+}
+
+.rbc-slot-selection {
+  z-index: 10;
+  position: absolute;
+  background-color: var(--rbc-time-selection-bg-color);
+  color: var(--rbc-time-selection-color);
+  font-size: 75%;
+  width: 100%;
+  padding: 3px;
+}
+
+.rbc-slot-selecting {
+  cursor: move;
+}
+
+.rbc-time-view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  border: 1px solid var(--rbc-calendar-border);
+  min-height: 0;
+  background-color: var(--rbc-calendar-bg);
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  overflow: hidden;
+}
+.rbc-time-view .rbc-header {
+  border-bottom: none;
+}
+.rbc-time-view .rbc-time-gutter {
+  white-space: nowrap;
+  text-align: right;
+}
+.rbc-time-view .rbc-allday-cell {
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+}
+.rbc-time-view .rbc-allday-cell + .rbc-allday-cell {
+  border-left: 1px solid var(--rbc-cell-border);
+}
+.rbc-time-view .rbc-allday-events {
+  position: relative;
+  z-index: 4;
+}
+.rbc-time-view .rbc-row {
+  box-sizing: border-box;
+  min-height: 1.875rem;
+}
+
+.rbc-time-header {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+}
+.rbc-time-header.rbc-overflowing {
+  border-right: 1px solid var(--rbc-cell-border);
+}
+.rbc-rtl .rbc-time-header.rbc-overflowing {
+  border-right-width: 0;
+  border-left: 1px solid var(--rbc-cell-border);
+}
+.rbc-time-header > .rbc-row:first-child {
+  border-bottom: 1px solid var(--rbc-cell-border);
+}
+.rbc-time-header > .rbc-row.rbc-row-resource {
+  border-bottom: 1px solid var(--rbc-cell-border);
+}
+
+.rbc-time-header-cell-single-day {
+  display: none;
+}
+
+.rbc-time-header-content {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border-left: 1px solid var(--rbc-cell-border);
+}
+.rbc-rtl .rbc-time-header-content {
+  border-left-width: 0;
+  border-right: 1px solid var(--rbc-cell-border);
+}
+.rbc-time-header-content > .rbc-row.rbc-row-resource {
+  border-bottom: 1px solid var(--rbc-cell-border);
+  flex-shrink: 0;
+}
+
+.rbc-time-content {
+  display: flex;
+  flex: 1 0 0%;
+  align-items: flex-start;
+  width: 100%;
+  border-top: 1px solid var(--rbc-calendar-border);
+  overflow-y: auto;
+  position: relative;
+}
+.rbc-time-content > .rbc-time-gutter {
+  flex: none;
+}
+.rbc-time-content > * + * > * {
+  border-left: 1px solid var(--rbc-cell-border);
+}
+.rbc-rtl .rbc-time-content > * + * > * {
+  border-left-width: 0;
+  border-right: 1px solid var(--rbc-cell-border);
+}
+.rbc-time-content > .rbc-day-slot {
+  width: 100%;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+}
+
+.rbc-current-time-indicator {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--rbc-current-time-color);
+  pointer-events: none;
+}/*# sourceMappingURL=time-grid.css.map */

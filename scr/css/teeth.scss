@@ -1,0 +1,15 @@
+.teeth-chart-svg {
+  g {
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    :focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
+    :focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}

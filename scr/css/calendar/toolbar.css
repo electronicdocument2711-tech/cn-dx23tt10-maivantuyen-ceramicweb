@@ -1,0 +1,121 @@
+:root {
+  --rbc-out-of-range-color: #6b7280;
+  --rbc-out-of-range-bg-color: #f5f5f5;
+  --rbc-calendar-border: #e5e7eb;
+  --rbc-cell-border: #e5e7eb;
+  --rbc-cell-border-lighten: #f7f8f9;
+  --rbc-border-color: #e5e7eb;
+  --rbc-time-selection-color: white;
+  --rbc-time-selection-bg-color: rgba(0, 0, 0, 0.5);
+  --rbc-date-selection-bg-color: rgba(0, 0, 0, 0.1);
+  --rbc-event-bg: #93c5fd;
+  --rbc-event-bg-active: #dbeafe;
+  --rbc-event-border: #60a5fa;
+  --rbc-event-outline: #3b99fc;
+  --rbc-event-color: #1e3a8a;
+  --rbc-calendar-bg: #fff;
+  --rbc-btn-bg: #fff;
+  --rbc-btn-bg-active: #eff4fb;
+  --rbc-btn-border: #e2e8f0;
+  --rbc-btn-border-active: #e2e8f0;
+  --rbc-current-time-color: #1ab08e;
+}
+
+:root.dark {
+  --rbc-out-of-range-color: #666e79;
+  --rbc-out-of-range-bg-color: #3a4552;
+  --rbc-calendar-border: #3d4d60;
+  --rbc-cell-border: #1a222c;
+  --rbc-cell-border-lighten: #1e2733;
+  --rbc-border-color: #e5e7eb;
+  --rbc-time-selection-color: white;
+  --rbc-time-selection-bg-color: rgba(0, 0, 0, 0.5);
+  --rbc-date-selection-bg-color: rgba(0, 0, 0, 0.1);
+  --rbc-event-bg: #0c4a6e;
+  --rbc-event-border: #0a3b58;
+  --rbc-event-outline: #3b99fc;
+  --rbc-event-color: #bae6fd;
+  --rbc-calendar-bg: #24303f;
+  --rbc-btn-bg: #24303f;
+  --rbc-btn-bg-active: #313d4a;
+  --rbc-btn-border: #2e3a47;
+  --rbc-btn-border-active: #e2e8f0;
+  --rbc-current-time-color: #01a781;
+}
+
+.rbc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.rbc-toolbar .rbc-toolbar-label {
+  flex-grow: 1;
+  padding: 0 10px;
+  text-align: center;
+}
+.rbc-toolbar button {
+  display: inline-block;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  background: var(--rbc-btn-bg);
+  background-image: none;
+  border: 1px solid var(--rbc-btn-border);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  line-height: normal;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: 500;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+.rbc-toolbar button:active, .rbc-toolbar button:focus, .rbc-toolbar button:hover, .rbc-toolbar button.rbc-active {
+  background-image: none;
+  background-color: var(--rbc-btn-bg-active);
+}
+
+.rbc-btn-group {
+  display: inline-block;
+  white-space: nowrap;
+}
+.rbc-btn-group > button:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.rbc-btn-group > button:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.rbc-rtl .rbc-btn-group > button:first-child:not(:last-child) {
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.rbc-rtl .rbc-btn-group > button:last-child:not(:first-child) {
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.rbc-btn-group > button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+.rbc-btn-group button + button {
+  margin-left: -1px;
+}
+.rbc-rtl .rbc-btn-group button + button {
+  margin-left: 0;
+  margin-right: -1px;
+}
+.rbc-btn-group + .rbc-btn-group, .rbc-btn-group + button {
+  margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .rbc-toolbar {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=toolbar.css.map */

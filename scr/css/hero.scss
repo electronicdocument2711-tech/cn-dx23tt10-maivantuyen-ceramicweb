@@ -1,0 +1,40 @@
+.border-medium {
+  border-width: 1px;
+}
+
+.rounded-large {
+  border-radius: 1rem;
+}
+
+div.group[data-slot="base"] {
+  div[data-slot="input-wrapper"] {
+    box-shadow: none !important;
+    &[data-hover="true"] {
+      transition: 0s;
+      // outline: solid 2px var(--heroui-outline-color);
+      // border-color: var(--heroui-outline-color);
+    }
+    label {
+      font-size: 0.875rem;
+      color: var(--label-foreground);
+      padding-left: 0.25rem;
+      font-weight: 600;
+    }
+    input {
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+      &::placeholder {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--placeholder-foreground);
+      }
+    }
+  }
+}
+
+div.group-data-\[focus\=true\]\:border-default-foreground:is(
+    :where(.group)[data-focus="true"] *
+  ) {
+  // border-color: var(--heroui-outline-color);
+  // outline: solid 2px var(--heroui-outline-color);
+}

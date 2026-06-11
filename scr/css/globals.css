@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@plugin "./hero.ts";
+
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+/* @custom-variant dark (&:is(.dark *)); */
+@import "./ui.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #233e6f;
+  --header-foreground: #042d60;
+  --label-foreground: #42586d;
+  --placeholder-foreground: #7a8593;
+  --link-foreground: #6f717c;
+  --link-hover-foreground: #006ce6;
+  --heroui-outline-color: #63b6f7;
+  --heroui-default: 212.5 92.31% 94.9%;
+  --font-sans: var(--font-be-vietnam-pro);
+  --heroui-disabled-opacity: 0.8;
+}
+
+@theme {
+  --font-sans: var(--font-be-vietnam-pro);
+
+  --color-gray-50: #fbf9fa;
+  --color-gray-200: #f6f8fb;
+  --color-gray-300: #eff2f5;
+  --color-gray-400: #e0e3e8;
+  --color-gray-500: #dee1e6;
+  --color-gray-600: #687e93;
+  --color-gray-700: #5e7489;
+  --color-gray-800: #364153;
+  --color-gray-900: #101828;
+
+  --breakpoint-2xs: 320px;
+  --breakpoint-xs: 480px;
+  --font-size-xs: 0.75rem;
+}
+
+/* @theme inline {
+  --font-sans: var(--font-be-vietnam-pro);
+} */
+
+@layer base {
+  body {
+    @apply min-h-screen antialiased;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1 {
+    @apply text-xl sm:text-2xl md:text-[1.75rem] font-bold tracking-[-0.02rem];
+  }
+
+  h2 {
+    @apply text-lg sm:text-xl md:text-2xl font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-base sm:text-lg md:text-xl font-semibold;
+  }
+
+  h4 {
+    @apply text-base font-semibold leading-[1.4] tracking-[0];
+  }
+
+  h5 {
+    @apply text-sm font-semibold;
+  }
+
+  .last-row-no-border > tr:last-child {
+    border-bottom: none !important;
+  }
+
+  .timeline-menu .timeline-item > div::before,
+  .timeline-menu .timeline-item > [data-slot="startContent"] > div::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    width: 0px;
+    border-left: 2px dashed var(--color-stone-300);
+    height: calc(100% + 5px);
+    z-index: -1;
+  }
+
+  .timeline-menu .timeline-item > div.active::before,
+  .timeline-menu
+    .timeline-item
+    > [data-slot="startContent"]
+    > div.active::before {
+    border-left-color: #51a2ff !important;
+  }
+
+  .timeline-menu.timeline-specific .timeline-item:nth-child(5) > div::before {
+    display: none !important;
+  }
+
+  .timeline-menu:not(.timeline-specific)
+    .timeline-item:last-child
+    > [data-slot="startContent"]
+    > div::before {
+    display: none !important;
+  }
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

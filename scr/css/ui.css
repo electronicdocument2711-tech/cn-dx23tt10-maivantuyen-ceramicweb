@@ -1,0 +1,53 @@
+@layer utilities {
+  .table-simple {
+    container-type: inline-size;
+    @apply border border-gray-500 rounded-2xl divide-y divide-gray-300 text-xs @sm:text-sm @md:text-base font-medium  leading-[1.4];
+    & > * {
+      @apply max-h-[54px] hover:bg-gray-50 px-5 py-4 flex flex-row items-center justify-between;
+    }
+    & > :last-child * {
+      @apply text-base @sm:text-lg @md:text-xl font-bold;
+    }
+  }
+
+  .table-diary {
+    @apply flex flex-col px-4 py-1 border-1 border-default-400 rounded-2xl;
+    & > * {
+      @apply py-3 border-b-1 border-default-400;
+    }
+    & > p,
+    div p,
+    div div span {
+      @apply font-medium text-base text-foreground;
+    }
+    & > :last-child {
+      @apply border-none;
+    }
+  }
+
+  .table-divider-bottom {
+    @apply border-b-1 border-b-gray-300;
+  }
+
+  .table-header {
+    @apply text-xs @sm:text-sm @md:text-base font-medium;
+  }
+
+  .table-content {
+    @apply text-xs @sm:text-sm @md:text-base font-medium  leading-[1.4];
+  }
+
+  /* button class */
+  .btn-primary {
+    @apply w-full h-10 rounded-xl font-bold text-base  bg-[#006CE6] text-white hover:bg-blue-600 data-[disabled=true]:opacity-50;
+  }
+
+  /* page class */
+  .page-title {
+    @apply font-bold text-[28px] text-foreground tracking-[-0.02em];
+  }
+
+  .box-shadow-sm {
+    @apply shadow-[0_1px_2px_rgba(20,21,26,0.06),0_1px_3px_rgba(20,21,26,0.1)];
+  }
+}
